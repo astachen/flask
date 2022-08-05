@@ -48,6 +48,15 @@ class MyConverter(BaseConverter):
 
         self.regex = regex
 
+    # 可以统一参数处理
+    def to_python(self, value):
+        return value
+
+    # 重定向时用到
+    def to_url(self, value):
+        print(value, '----------------------------------')
+        return value
+
 
 # 注册转换器
 app.url_map.converters['mc'] = MyConverter
@@ -56,10 +65,10 @@ app.url_map.converters['mc'] = MyConverter
 @app.route('/phone/<mc("1[3456789]\d{9}"):pe>')
 def phone(pe):
     print(type(pe))
-    return 'my phone is {0}'.format(pe)
+    # return 'my phone is {0}'.format(pe)
     # return 'my uid is %s' % uid
     # return 'center'
-
+    return redirect(url_for('phone1', pe=138123456789))
 
 @app.route('/phone1/<mc("1[3456789]\d{9}"):pe>')
 def phone1(pe):

@@ -4,7 +4,7 @@ from astral.sun import sun
 
 
 def city_astral():
-    # in the future, this will be moved to the url
+    # in the future, this will be moved to the url.
     name = input('Please type the name here:')
 
     # put the tuple into the dictionary

@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/sunrise')
 def sunphase():
-    return 'Hello!'
+    return 'Hello!!'
 
 
 if __name__ == '__main__':
